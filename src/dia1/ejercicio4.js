@@ -1,42 +1,37 @@
-// Aplicación de lista de tareas
-function TaskManager() {
-  const tasks = [];
+function AuthenticationManager() {
+  let isLoggedIn = false;
+  let username = "";
 
-  function addTask(task) {
-    tasks.push(task);
+  function login(user, password) {
+    if (user === "admin" && password === "admin123") {
+      isLoggedIn = true;
+      username = "admin";
+    } else {
+      isLoggedIn = false;
+      username = "";
+    }
   }
 
-  function completeTask(task) {
-    task.completed = true;
+  function logout() {
+    isLoggedIn = false;
+    username = "";
   }
 
-  function deleteTask(task) {
-    const taskIndex = tasks.indexOf(task);
-    tasks.splice(taskIndex, 1);
-  }
-
-  function displayTasks() {
-    console.log("Tasks:");
-    tasks.forEach((task) => {
-      console.log(task.description);
-    });
-  }
-
-  function getLastTask() {
-    return tasks[tasks.length - 1];
+  function displayStatus() {
+    if (isLoggedIn) {
+      console.log(`Logged in as ${username}`);
+    } else {
+      console.log("Not logged in");
+    }
   }
 
   return {
-    addTask,
-    completeTask,
-    deleteTask,
-    displayTasks,
-    getLastTask,
+    login,
+    logout,
+    displayStatus,
   };
 }
 
-const taskManager = TaskManager();
-const task1 = { description: "Buy groceries", completed: false };
-taskManager.addTask(task1);
-taskManager.completeTask(task1);
-taskManager.displayTasks();
+const authManager = AuthenticationManager();
+authManager.login("admin", "admin123");
+authManager.displayStatus();

@@ -1,37 +1,22 @@
-function AuthenticationManager() {
-  let isLoggedIn = false;
-  let username = "";
-
-  function login(user, password) {
-    if (user === "admin" && password === "admin123") {
-      isLoggedIn = true;
-      username = "admin";
-    } else {
-      isLoggedIn = false;
-      username = "";
-    }
+function calculateTotal(item, l, isPremiumMember) {
+  var value;
+  if (l === "peninsula") {
+    // Calcular el precio con el IVA de la Peninsula
+    value = item.price * (1 + 0.21);
+  } else if (l === "canarias") {
+    // Calcular el precio con el IVA de Canarias
+    value = item.price * (1 + 0.7);
   }
 
-  function logout() {
-    isLoggedIn = false;
-    username = "";
+  if (isPremiumMember) {
+    value *= 0.7;
+  } else {
+    value *= 0.9;
   }
 
-  function displayStatus() {
-    if (isLoggedIn) {
-      console.log(`Logged in as ${username}`);
-    } else {
-      console.log("Not logged in");
-    }
-  }
-
-  return {
-    login,
-    logout,
-    displayStatus,
-  };
+  return value;
 }
 
-const authManager = AuthenticationManager();
-authManager.login("admin", "admin123");
-authManager.displayStatus();
+const x = calculateTotal({ name: "Product 1", price: 50 }, "peninsula", true);
+
+console.log(`Product 1: ${x} €`);

@@ -7,20 +7,20 @@ function EmployeeManager() {
 
   function calculateSalary(employee) {
     let baseSalary = employee.baseSalary;
-    let bonus = calculateBonus(employee);
-    let totalSalary = baseSalary + bonus;
-    return totalSalary;
-  }
 
-  function calculateBonus(employee) {
     let yearsOfService = employee.yearsOfService;
     let performanceRating = employee.performanceRating;
     let bonusPercentage = determineBonusPercentage(
       yearsOfService,
       performanceRating
     );
-    let baseSalary = employee.baseSalary;
     let bonus = baseSalary * bonusPercentage;
+
+    let totalSalary = baseSalary + bonus;
+    return totalSalary;
+  }
+
+  function calculateBonus(employee) {
     return bonus;
   }
 
