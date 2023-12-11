@@ -10,8 +10,4 @@ function configurarGrafico(
   // ...
 }
 
-const isValidQuantity =
-  !!investmentQuantity &&
-  (percent[index]
-    ? row[index].minimunQuantity <= (percent[index] * investmentQuantity) / 100
-    : true);
+configurarGrafico("Titulo", 100, 200, "black", true);
