@@ -79,7 +79,7 @@ La **refactorización** es una técnica en el desarrollo de software que busca m
    - **Regla de los scout:**
      - Dejar el código más limpio de lo encontrado.
 
-## Día 2: Testeo en Desarrollo de Software
+## Testeo en Desarrollo de Software
 
 **¿Qué es un test?**
 Un test es un bloque de código que valida automáticamente el funcionamiento correcto de otra sección de código.
