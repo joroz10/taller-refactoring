@@ -2,13 +2,13 @@
 
 let num = [80, 90, 75, 95, 88];
 
-function f(arr) {
+function calcularMediaAritmetica(calificaciones) {
   let sum = 0;
-  for (let i = 0; i < arr.length; i++) {
-    sum += arr[i];
+  for (let i = 0; i < calificaciones.length; i++) {
+    sum += calificaciones[i];
   }
-  return sum / arr.length;
+  return sum / calificaciones.length;
 }
 
-const average = f(num);
+const average = calcularMediaAritmetica(num);
 console.log(average);

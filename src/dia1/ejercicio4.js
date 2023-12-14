@@ -3,31 +3,27 @@ function AuthenticationManager() {
   let username = "";
 
   function login(user, password) {
-    if (user === "admin" && password === "admin123") {
+    const isAdminUser = user === "admin" && password === "admin123";
+    if (isAdminUser) {
       isLoggedIn = true;
       username = "admin";
-    } else {
+      return;
+    }
       isLoggedIn = false;
       username = "";
-    }
-  }
-
-  function logout() {
-    isLoggedIn = false;
-    username = "";
   }
 
   function displayStatus() {
     if (isLoggedIn) {
       console.log(`Logged in as ${username}`);
-    } else {
+      return;
+    } 
       console.log("Not logged in");
-    }
+    
   }
 
   return {
     login,
-    logout,
     displayStatus,
   };
 }
